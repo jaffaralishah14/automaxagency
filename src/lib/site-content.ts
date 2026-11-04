@@ -49,7 +49,7 @@ export const services: Record<ServiceSlug, Service> = {
       { q: "Can I update the site after launch?", a: "Yes. When needed, we set up a simple CMS so you can update your content yourself." },
       { q: "How long will it take?", a: "It depends on the scope. We give you a specific timeline once the scope is confirmed." },
     ],
-    proof: homeReviews[1],
+    proof: homeReviews[1]!,
   },
   seo: {
     slug: "seo",
