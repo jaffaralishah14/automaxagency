@@ -33,7 +33,7 @@ export type Service = {
   helpWith: string[];
   included: string[];
   faq: { q: string; a: string }[];
-  proof?: Review;
+  proof?: Review | undefined;
 };
 
 export const services: Record<ServiceSlug, Service> = {
