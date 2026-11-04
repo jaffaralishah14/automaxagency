@@ -104,3 +104,12 @@ export const services: Record<ServiceSlug, Service> = {
 };
 
 export const serviceList = Object.values(services);
+
+/** Real work screenshots per service visual. Add URLs (from .asset.json pointers) when supplied. */
+export type ShowcaseShots = { desktop?: string; mobile?: string; caption: string; label: string };
+export const showcaseShots: Record<Service["visual"], ShowcaseShots> = {
+  browser: { caption: "Client project", label: "Website screenshot" },
+  seo: { caption: "Client results", label: "SEO results screenshot" },
+  ads: { caption: "Client campaign", label: "Ads dashboard screenshot" },
+  automation: { caption: "Client workflow", label: "Automation workflow screenshot" },
+};
