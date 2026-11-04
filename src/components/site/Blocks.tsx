@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Review, Service } from "@/lib/site-content";
+import { showcaseShots, type Review, type Service } from "@/lib/site-content";
 
 export function Faq({ items, idPrefix, firstOpen = true }: { items: { q: string; a: string }[]; idPrefix: string; firstOpen?: boolean }) {
   const [open, setOpen] = useState<Set<number>>(() => new Set(firstOpen ? [0] : []));
