@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Site styling lives in plain CSS classes in src/styles.css (ported from the original Automax static site); reuse those classes instead of Tailwind utilities so all pages stay visually consistent.
+- Shared copy (reviews, service data, email) lives in src/lib/site-content.ts; pages read from it so wording stays identical everywhere.

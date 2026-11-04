@@ -541,7 +541,7 @@ h1 em,h2 em{padding-right:.08em;margin-right:-.08em}
 .icon-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
 .cal-grid .dow{padding:6px 0;color:var(--text-muted);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
-.cal-day{aspect-ratio:1;display:grid;place-items:center;border:1px solid transparent;border-radius:12px;background:transparent;font-size:15px;font-weight:500;transition:border-color .2s ease-out,background-color .2s ease-out}
+.cal-day{height:48px;display:grid;place-items:center;border:1px solid transparent;border-radius:12px;background:transparent;font-size:15px;font-weight:500;transition:border-color .2s ease-out,background-color .2s ease-out}
 .cal-day:disabled{color:color-mix(in oklch,var(--ink) 30%,var(--cream));cursor:default}
 .cal-day:not(:disabled){background:var(--cream);border-color:var(--line)}
 .cal-day:not(:disabled):hover{border-color:var(--ember)}
