@@ -93,10 +93,9 @@ export function ServicePage({ service: s }: { service: Service }) {
         <section className="section" aria-label="Client review">
           <div className="container">
             <figure className="proof-card">
-              <span aria-hidden="true" className="quote-mark">“</span>
               <div>
                 <Stars />
-                <blockquote>“{s.proof.quote}”</blockquote>
+                <blockquote><span className="q-mark">“</span>{s.proof.quote}<span className="q-mark">”</span></blockquote>
                 <figcaption>
                   <span aria-hidden="true" className="review-avatar">
                     {s.proof.name.charAt(0).toUpperCase()}

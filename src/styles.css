@@ -487,9 +487,9 @@ h1 em,h2 em{padding-right:.08em;margin-right:-.08em}
 .check-list li span.check{display:grid;place-items:center;width:36px;height:36px;flex:0 0 36px;border-radius:50%;background:var(--ember-gradient);color:#fff}
 .check-list svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
-.proof-card{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;max-width:980px;margin:0 auto;padding:56px;border:1px solid var(--line);border-radius:24px;background:var(--surface-raised)}
-.proof-card .quote-mark{font-size:120px;height:80px}
+.proof-card{display:grid;grid-template-columns:1fr;gap:40px;align-items:start;max-width:980px;margin:0 auto;padding:56px;border:1px solid var(--line);border-radius:24px;background:var(--surface-raised)}
 .proof-card blockquote{font-size:clamp(23px,2.2vw,32px);font-weight:500;line-height:1.45;letter-spacing:-.02em}
+.proof-card blockquote .q-mark{background:var(--ember-gradient-on-light);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .proof-card figcaption{display:flex;align-items:center;gap:12px;margin-top:32px}
 .proof-card figcaption small{display:block;color:var(--text-muted);font-size:13px}
 .proof-card .review-rating{margin-bottom:24px}
@@ -608,7 +608,6 @@ h1 em,h2 em{padding-right:.08em;margin-right:-.08em}
   .line-card h3{padding-top:32px;font-size:23px}
   .check-list li{font-size:18px;min-height:72px}
   .proof-card{padding:30px 24px}
-  .proof-card .quote-mark{font-size:88px;height:56px}
   .tool-row span{min-height:96px;font-size:16px}
   .review-wall{columns:1}
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px}

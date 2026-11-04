@@ -83,7 +83,7 @@ function About() {
           <div className="card-grid">
             {principles.map((p) => (
               <article key={p.n} className="line-card">
-                <span className="card-index"><b>{p.n}</b> / {p.t}</span>
+                <span className="solve-number">{p.n}</span>
                 <div>
                   <h3>{p.t}</h3>
                   <p>{p.d}</p>

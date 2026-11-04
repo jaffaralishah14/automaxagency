@@ -82,7 +82,7 @@ function Audit() {
           <section className="audit-context" aria-labelledby="audit-title">
             <p className="eyebrow">15-minute live review</p>
             <h1 id="audit-title">
-              Let’s look at your website, traffic, <em>and workflows.</em>
+              Let’s look at your website, traffic <em>and workflows.</em>
             </h1>
             <p className="lede">{desc}</p>
 
