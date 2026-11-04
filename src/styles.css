@@ -473,9 +473,9 @@ h1 em,h2 em{padding-right:.08em;margin-right:-.08em}
 .line-card .card-index{color:var(--text-muted);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
 .line-card .card-index b{background:var(--ember-gradient-on-light);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:700}
 .solve-number{display:block;width:fit-content;background:var(--ember-gradient-on-light);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-size:48px;font-weight:600;line-height:1;letter-spacing:0}
-.solve-grid .line-card{min-height:240px;border-radius:var(--radius-sm)}
-.solve-grid .line-card h3{letter-spacing:0}
-@media(max-width:640px){.solve-number{font-size:40px}.solve-grid .line-card{min-height:180px}}
+.solve-grid .line-card{min-height:0;justify-content:flex-start;padding:30px;border-radius:var(--radius-sm)}
+.solve-grid .line-card h3{margin-top:16px;padding-top:0;font-size:24px;letter-spacing:0}
+@media(max-width:640px){.solve-number{font-size:40px}.solve-grid .line-card{padding:24px}.solve-grid .line-card h3{margin-top:12px;font-size:21px}}
 .line-card h3{margin-top:auto;padding-top:48px;font-size:26px;font-weight:600;line-height:1.2;letter-spacing:-.025em}
 .line-card p{margin-top:14px;color:var(--text-muted);font-size:16px;line-height:1.65}
 .tint{background:var(--surface-tint)}

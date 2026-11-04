@@ -80,7 +80,7 @@ function About() {
               Operating <em>principles.</em>
             </h2>
           </div>
-          <div className="card-grid">
+          <div className="card-grid solve-grid">
             {principles.map((p) => (
               <article key={p.n} className="line-card">
                 <span className="solve-number">{p.n}</span>
