@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesAutomationsRouteImport } from './routes/services.automations'
+import { Route as ServicesPaidAdsRouteImport } from './routes/services.paid-ads'
+import { Route as ServicesSeoRouteImport } from './routes/services.seo'
+import { Route as ServicesWebDesignRouteImport } from './routes/services.web-design'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesAutomationsRoute = ServicesAutomationsRouteImport.update({
+  id: '/services/automations',
+  path: '/services/automations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesPaidAdsRoute = ServicesPaidAdsRouteImport.update({
+  id: '/services/paid-ads',
+  path: '/services/paid-ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSeoRoute = ServicesSeoRouteImport.update({
+  id: '/services/seo',
+  path: '/services/seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesWebDesignRoute = ServicesWebDesignRouteImport.update({
+  id: '/services/web-design',
+  path: '/services/web-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/services/automations': typeof ServicesAutomationsRoute
+  '/services/paid-ads': typeof ServicesPaidAdsRoute
+  '/services/seo': typeof ServicesSeoRoute
+  '/services/web-design': typeof ServicesWebDesignRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/services/automations': typeof ServicesAutomationsRoute
+  '/services/paid-ads': typeof ServicesPaidAdsRoute
+  '/services/seo': typeof ServicesSeoRoute
+  '/services/web-design': typeof ServicesWebDesignRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/services/automations': typeof ServicesAutomationsRoute
+  '/services/paid-ads': typeof ServicesPaidAdsRoute
+  '/services/seo': typeof ServicesSeoRoute
+  '/services/web-design': typeof ServicesWebDesignRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/services/automations'
+    | '/services/paid-ads'
+    | '/services/seo'
+    | '/services/web-design'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/services/automations'
+    | '/services/paid-ads'
+    | '/services/seo'
+    | '/services/web-design'
+  id:
+    | '__root__'
+    | '/'
+    | '/services/automations'
+    | '/services/paid-ads'
+    | '/services/seo'
+    | '/services/web-design'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ServicesAutomationsRoute: typeof ServicesAutomationsRoute
+  ServicesPaidAdsRoute: typeof ServicesPaidAdsRoute
+  ServicesSeoRoute: typeof ServicesSeoRoute
+  ServicesWebDesignRoute: typeof ServicesWebDesignRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +104,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/automations': {
+      id: '/services/automations'
+      path: '/services/automations'
+      fullPath: '/services/automations'
+      preLoaderRoute: typeof ServicesAutomationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/paid-ads': {
+      id: '/services/paid-ads'
+      path: '/services/paid-ads'
+      fullPath: '/services/paid-ads'
+      preLoaderRoute: typeof ServicesPaidAdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/seo': {
+      id: '/services/seo'
+      path: '/services/seo'
+      fullPath: '/services/seo'
+      preLoaderRoute: typeof ServicesSeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/web-design': {
+      id: '/services/web-design'
+      path: '/services/web-design'
+      fullPath: '/services/web-design'
+      preLoaderRoute: typeof ServicesWebDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ServicesAutomationsRoute: ServicesAutomationsRoute,
+  ServicesPaidAdsRoute: ServicesPaidAdsRoute,
+  ServicesSeoRoute: ServicesSeoRoute,
+  ServicesWebDesignRoute: ServicesWebDesignRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
