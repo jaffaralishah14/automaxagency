@@ -19,6 +19,8 @@ export function serviceHead(s: Service) {
 }
 
 export function ServicePage({ service: s }: { service: Service }) {
+  const accentStart = s.title.indexOf(s.titleAccent);
+  const reviewSource = s.proof?.source === undefined ? "Fiverr" : s.proof.source;
   return (
     <SiteLayout>
       <section className="hero page-hero dark-dots" aria-labelledby="service-title">
@@ -30,7 +32,9 @@ export function ServicePage({ service: s }: { service: Service }) {
             <i>/</i>
             <b>{s.name}</b>
           </p>
-          <h1 id="service-title">{s.title}</h1>
+          <h1 id="service-title">
+            {accentStart < 0 ? s.title : <>{s.title.slice(0, accentStart)}<em>{s.titleAccent}</em>{s.title.slice(accentStart + s.titleAccent.length)}</>}
+          </h1>
           <p className="hero-lede">{s.intro}</p>
           <div className="hero-actions">
             <Link className="button button-primary button-large" to="/audit">
@@ -53,12 +57,10 @@ export function ServicePage({ service: s }: { service: Service }) {
               What we <em>solve.</em>
             </h2>
           </div>
-          <div className={`card-grid${s.helpWith.length === 4 ? " cols-4" : ""}`}>
+          <div className={`card-grid solve-grid${s.helpWith.length === 4 ? " cols-4" : ""}`}>
             {s.helpWith.map((item, i) => (
               <article key={item} className="line-card">
-                <span className="card-index">
-                  <b>0{i + 1}</b> / Problem
-                </span>
+                <span className="solve-number">0{i + 1}</span>
                 <h3>{item}</h3>
               </article>
             ))}
@@ -101,7 +103,7 @@ export function ServicePage({ service: s }: { service: Service }) {
                   </span>
                   <span>
                     <strong>{s.proof.name}</strong>
-                    <small>{s.proof.country} · Fiverr</small>
+                    <small>{s.proof.country}{reviewSource ? ` · ${reviewSource}` : ""}</small>
                   </span>
                 </figcaption>
               </div>

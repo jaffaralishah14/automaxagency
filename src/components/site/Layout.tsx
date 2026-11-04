@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { EMAIL } from "@/lib/site-content";
 import { ArrowIcon } from "./Icons";
+import { SiteButton } from "./Button";
 
 const navItems = [
-  { label: "Services", hash: "services" },
   { label: "How it Works", hash: "process" },
-  { label: "Reviews", hash: "reviews" },
+  { label: "Reviews", to: "/reviews" as const },
   { label: "About", to: "/about" as const },
   { label: "FAQ", hash: "faq" },
 ];
@@ -14,6 +15,22 @@ const navItems = [
 function NavLinks({ onClick }: { onClick?: () => void }) {
   return (
     <>
+      <DropdownMenu.Root modal={false}>
+        <DropdownMenu.Trigger asChild>
+          <SiteButton className="services-menu-trigger">
+            Services
+            <svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" /></svg>
+          </SiteButton>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content className="services-dropdown" align="start" sideOffset={12} collisionPadding={20}>
+            <DropdownMenu.Item asChild><Link to="/services/web-design" activeProps={{ className: "active" }} onClick={onClick}>Web Design<ArrowIcon /></Link></DropdownMenu.Item>
+            <DropdownMenu.Item asChild><Link to="/services/seo" activeProps={{ className: "active" }} onClick={onClick}>SEO<ArrowIcon /></Link></DropdownMenu.Item>
+            <DropdownMenu.Item asChild><Link to="/services/paid-ads" activeProps={{ className: "active" }} onClick={onClick}>Paid Ads<ArrowIcon /></Link></DropdownMenu.Item>
+            <DropdownMenu.Item asChild><Link to="/services/automations" activeProps={{ className: "active" }} onClick={onClick}>Automation<ArrowIcon /></Link></DropdownMenu.Item>
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
       {navItems.map((item) =>
         item.to ? (
           <Link key={item.label} to={item.to} activeProps={{ className: "active" }} onClick={onClick}>
@@ -57,7 +74,7 @@ export function SiteHeader() {
           <span>Schedule call</span>
           <ArrowIcon />
         </Link>
-        <button
+        <SiteButton
           aria-controls="mobile-menu"
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
@@ -67,7 +84,7 @@ export function SiteHeader() {
         >
           <span />
           <span />
-        </button>
+        </SiteButton>
       </div>
       <nav aria-label="Mobile navigation" className="mobile-menu" hidden={!open} id="mobile-menu">
         <div className="container mobile-menu-inner">

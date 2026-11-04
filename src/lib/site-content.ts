@@ -1,6 +1,6 @@
 export const EMAIL = "hello@automax.agency";
 
-export type Review = { quote: string; name: string; country: string };
+export type Review = { quote: string; name: string; country: string; source?: string | null };
 
 // Home page reviews (from the original homepage).
 export const homeReviews: Review[] = [
@@ -27,6 +27,7 @@ export type Service = {
   slug: ServiceSlug;
   name: string;
   title: string;
+  titleAccent: string;
   intro: string;
   visual: "browser" | "seo" | "ads" | "automation";
   helpWith: string[];
@@ -40,6 +41,7 @@ export const services: Record<ServiceSlug, Service> = {
     slug: "web-design",
     name: "Web Design",
     title: "A clear, modern website for your business.",
+    titleAccent: "modern website",
     intro: "We design and build fast, easy-to-use websites that make it clear what you offer and what visitors can do next.",
     visual: "browser",
     helpWith: ["Outdated design", "Difficult mobile experience", "Unclear page structure"],
@@ -49,12 +51,13 @@ export const services: Record<ServiceSlug, Service> = {
       { q: "Can I update the site after launch?", a: "Yes. When needed, we set up a simple CMS so you can update your content yourself." },
       { q: "How long will it take?", a: "It depends on the scope. We give you a specific timeline once the scope is confirmed." },
     ],
-    proof: homeReviews[1]!,
+    proof: homeReviews[1],
   },
   seo: {
     slug: "seo",
     name: "SEO",
     title: "Help the right people find your business on Google.",
+    titleAccent: "the right people",
     intro: "We review your site, fix technical issues, and improve pages around searches that matter to your business.",
     visual: "seo",
     helpWith: ["Technical issues", "Unfocused search targeting", "Pages that need clearer information"],
@@ -64,11 +67,13 @@ export const services: Record<ServiceSlug, Service> = {
       { q: "How will progress be reported?", a: "You get clear reporting on the work completed and how your pages are performing in search." },
       { q: "How long does SEO take?", a: "SEO builds over time and depends on your site and market, so we don’t promise fixed results. We explain what to expect after reviewing your site." },
     ],
+    proof: { quote: "We ran into several stumbling blocks, but they worked right through them. They were very patient, knowledgeable, and professional.", name: "Lisa D.", country: "United States", source: "Fiverr" },
   },
   "paid-ads": {
     slug: "paid-ads",
     name: "Paid Ads",
     title: "Run ads with a clear plan and clear reporting.",
+    titleAccent: "a clear plan",
     intro: "We help plan, set up, and improve Google and Meta campaigns so you can understand what is being tested and where your budget goes.",
     visual: "ads",
     helpWith: ["Campaign setup", "Ad copy and creative testing", "Landing page alignment", "Tracking and reporting"],
@@ -78,11 +83,13 @@ export const services: Record<ServiceSlug, Service> = {
       { q: "Who pays the ad spend?", a: "Ad spend is separate from our fee. We confirm how billing works for your account during the audit call." },
       { q: "What budget is appropriate?", a: "It depends on your goals and market. We recommend a budget case by case after reviewing your situation." },
     ],
+    proof: { quote: "I’ve been using their services for our business for four times now, and I’m always blown away by the results.", name: "Repeat Client (4th Project)", country: "United States", source: null },
   },
   automations: {
     slug: "automations",
     name: "Automations",
     title: "Connect your tools and cut repeat admin.",
+    titleAccent: "cut repeat admin",
     intro: "We connect forms, CRMs, and communication tools to help your team handle leads and routine tasks with fewer manual steps.",
     visual: "automation",
     helpWith: ["Manual data entry", "Slow lead routing", "Tools that do not share information"],
@@ -92,6 +99,7 @@ export const services: Record<ServiceSlug, Service> = {
       { q: "What happens if a workflow fails?", a: "We set up notifications so issues are flagged, and the handover documentation explains how each workflow runs." },
       { q: "Can workflows be changed later?", a: "Yes. Workflows can be adjusted as your process changes." },
     ],
+    proof: { quote: "Jawad and his team are awesome! We had some custom coding and integrations we needed done and they came through.", name: "C. Davis", country: "United States", source: "Fiverr" },
   },
 };
 
