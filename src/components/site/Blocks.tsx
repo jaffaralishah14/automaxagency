@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { showcaseShots, type Review, type Service } from "@/lib/site-content";
+import type { Review, Service } from "@/lib/site-content";
 
 export function Faq({ items, idPrefix, firstOpen = true }: { items: { q: string; a: string }[]; idPrefix: string; firstOpen?: boolean }) {
   const [open, setOpen] = useState<Set<number>>(() => new Set(firstOpen ? [0] : []));
@@ -106,23 +106,50 @@ export function ProofStats() {
 }
 
 export function ServiceVisual({ kind }: { kind: Service["visual"] }) {
-  const shot = showcaseShots[kind];
-  return (
-    <figure className="showcase">
-      <div className={`showcase-stage${kind === "browser" ? " has-phone" : ""}`}>
-        <div className="showcase-frame">
-          <div className="showcase-bar" aria-hidden="true"><span /><span /><span /></div>
-          <div className="showcase-screen">
-            {shot.desktop ? <img src={shot.desktop} alt={shot.label} loading="lazy" /> : <span className="showcase-empty">{shot.label}</span>}
-          </div>
+  if (kind === "browser")
+    return (
+      <div aria-label="Browser window with desktop and mobile preview" className="micro-ui browser-ui" role="img">
+        <div className="browser-bar"><span /><span /><span /><i /></div>
+        <div className="browser-canvas">
+          <div className="mock-desktop"><div className="mock-nav" /><div className="mock-title" /><div className="mock-title short" /><div className="mock-button" /><div className="mock-columns"><i /><i /><i /></div></div>
+          <div className="mock-mobile"><div className="mock-nav" /><div className="mock-title" /><div className="mock-title short" /><div className="mock-button" /></div>
         </div>
-        {kind === "browser" && (
-          <div className="showcase-phone">
-            {shot.mobile ? <img src={shot.mobile} alt="Mobile view" loading="lazy" /> : <span className="showcase-empty" />}
-          </div>
-        )}
       </div>
-      <figcaption>{shot.caption}</figcaption>
-    </figure>
+    );
+  if (kind === "seo")
+    return (
+      <div className="micro-ui seo-ui">
+        <span className="sample-label">Sample visualization</span>
+        <div className="search-result"><div className="search-line" /><div className="search-title" /><div className="search-copy" /><div className="search-copy short" /></div>
+        <div aria-hidden="true" className="ranking-chart">
+          {["28%", "42%", "38%", "62%", "76%", "92%"].map((h, i) => (
+            <i key={i} style={{ ["--h" as string]: h }} />
+          ))}
+        </div>
+      </div>
+    );
+  if (kind === "ads")
+    return (
+      <div className="micro-ui ads-ui">
+        <span className="sample-label">Sample campaign</span>
+        {[0, 1, 2].map((r) => (
+          <div key={r} className="campaign-row"><span /><i /><i /><i /></div>
+        ))}
+        <div className="campaign-key"><b /><b /><b /></div>
+      </div>
+    );
+  const nodes = ["Form", "Rules", "CRM", "Team notification"];
+  return (
+    <div aria-label="Form to Rules to CRM to Team notification workflow" className="micro-ui automation-ui" role="img">
+      <span className="sample-label">Sample data</span>
+      {nodes.map((n, i) => (
+        <span key={n} style={{ display: "contents" }}>
+          <div className="flow-node">{n}</div>
+          {i < nodes.length - 1 && (
+            <svg aria-hidden="true" viewBox="0 0 40 16"><path d="M2 8h34m-6-5 6 5-6 5" /></svg>
+          )}
+        </span>
+      ))}
+    </div>
   );
 }
